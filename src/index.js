@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div class="work-screenshot">
               <h2>スクリーンショット</h2>
-              <img src="/works/images/${work.screenshot}"></img>
+              <img style="height: 33%; width: 33%;" src="/works/images/${work.screenshot}"></img>
             </div>
             <div class="work-descreption">
               <h2>説明</h2>
