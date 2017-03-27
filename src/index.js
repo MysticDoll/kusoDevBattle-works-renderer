@@ -2,9 +2,9 @@ import Marked from "marked";
 import Fetch from "./fetcher";
 import validator from "./validator";
 
-const container = document.getElementById("works-container");
 
 document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("works-container");
   Fetch("/works.json")
     .then(plain => JSON.parse(plain))
     .then(works => {
