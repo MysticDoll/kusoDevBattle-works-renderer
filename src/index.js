@@ -1,6 +1,5 @@
 import Marked from "marked";
 import Fetch from "./fetcher";
-import validator from "./validator";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,15 +9,16 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(works => {
       return Promise.all(works.map((work) => {
         return new Promise((resolve) => {
-          if(validator(work)) {
-            resolve(Fetch(`/works/description/${work.description}`));
-          }
-          resolve("");
+          resolve(Fetch(`/works/description/${work.description}`));
         }).then(description => {
           return Marked(description);
         }).then(description => {
           return `<div class="work">
             <h2 class="work-title"><a href=${work.url}>${work.title}</a></h2>
+            <div class="work-creator">
+              <h2>作者</h2>
+              <span>${work.creator}</span>
+            </div>
             <div class="work-screenshot">
               <h2>スクリーンショット</h2>
               <img src="/works/images/${work.screenshot}"></img>
